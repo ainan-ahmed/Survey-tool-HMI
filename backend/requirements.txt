@@ -1,0 +1,6 @@
+Django==3.2.*
+django-allauth
+psycopg2
+djangorestframework
+django-cors-headers
+dj-rest-auth
