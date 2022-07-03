@@ -4,3 +4,5 @@ psycopg2
 djangorestframework
 django-cors-headers
 dj-rest-auth
+Pillow
+drf_yasg
