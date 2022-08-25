@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'corsheaders',
     #
     'users',
+    'surveys',
+    'entries',
 ]
 AUTH_USER_MODEL = 'users.CustomUser'
 MIDDLEWARE = [
