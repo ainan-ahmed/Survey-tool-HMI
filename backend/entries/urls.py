@@ -3,8 +3,12 @@ from rest_framework.routers import DefaultRouter
 from django.urls import path,include
 router = DefaultRouter()
 router.register('',EntryViewSet,basename="entry")
-router.register('questions',QuestionViewSet,basename="question")
-router.register('answers',AnswerViewSet,basename="answer")
-#router.register('comments',CommentViewSet,basename="comments")
+# router.register('answers',AnswerViewSet,basename="answer")
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('answers/',AnswerViewSet.as_view({'post':'create'})),
+    path('answers/<pk>/', AnswerViewSet.as_view({'put': 'update', 'delete': 'destroy'})),
+    path('', include(router.urls)),
+    ]
+
+# urlpatterns = router.urls

@@ -3,12 +3,9 @@ from django.contrib.auth import get_user_model
 from .models import *
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from allauth.account.adapter import get_adapter
+from allauth.account.utils import setup_user_email
 
 class UserSerializer(serializers.ModelSerializer):
-    #posts = UserPostSerializer(many=True, read_only=True)
-    #followers = FollowerSerializer(many=True, read_only=True)
-    #following = serializers.StringRelatedField(many=True)
-    #followers = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = get_user_model()

@@ -25,6 +25,7 @@ urlpatterns = [
     path('api/auth/registration/',
          include('dj_rest_auth.registration.urls')),
     path('api/entries/', include('entries.urls')),
+    path('api/surveys/', include('surveys.urls')),
     path('swagger/', schema_view.with_ui(
         'swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui(
