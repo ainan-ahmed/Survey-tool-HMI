@@ -24,12 +24,17 @@ class Entry(models.Model):
     class Meta:
         ordering = ['-date_created']
     def __str__(self):
-        return self.description
+        return f'Entry by: {self.first_name}  {self.last_name}'
 
 
 
 class Answer(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    question = models.OneToOneField(Question,on_delete=models.CASCADE,related_name="answer")
+    question = models.ForeignKey(Question,on_delete=models.CASCADE,related_name="answer")
     answer = models.TextField(max_length=500)
-    entry = models.ForeignKey(Entry,on_delete=models.CASCADE,related_name="answers");
+    entry = models.ForeignKey(Entry,on_delete=models.CASCADE,related_name="answers")
+
+    def __str__(self):
+        return self.answer or ''
+    class Meta:
+        unique_together = ('question', 'entry')
